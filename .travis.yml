@@ -7,17 +7,17 @@ script:
   - docker run sanjeev/react-test npm test -- --coverange
 
 after_success:
- - docker build -t sanjeev/multi-client ./client
- - docker build -t sanjeev/multi-nginx ./nginx
- - docker build -t sanjeev/multi-server ./server
- - docker build -t build sanjeev/multi-worker ./worker
-# # login into Docker CLI
- -  echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password--stdin
- #Pushing images to Docker Hub
-   - docker push sanjeev/multi-client
-   - docker push sanjeev/multi-nginx
-   - docker push sanjeev/multi-server
-   - docker push sanjeev/multi-worker
+  - docker build -t sanjeev/multi-client ./client
+  - docker build -t sanjeev/multi-nginx ./nginx
+  - docker build -t sanjeev/multi-server ./server
+  - docker build -t build sanjeev/multi-worker ./worker
+  # login into Docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password--stdin
+  #Pushing images to Docker Hub
+  - docker push sanjeev/multi-client
+  - docker push sanjeev/multi-nginx
+  - docker push sanjeev/multi-server
+  - docker push sanjeev/multi-worker
   
 
   
